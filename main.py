@@ -26,13 +26,11 @@ def number_album(dir, number_tracks, trim_artist):
                 audio.tags['TRCK'] = TRCK(encoding=3, text=str(i))
                 save = True
             if trim_artist:
-                print(str(audio.tags["TIT2"]))
                 match = trim_artist_re.match(str(audio.tags["TIT2"]))
                 audio.tags["TIT2"] = TIT2(encoding=3, text=match.group(1))
                 save = True
             if save:
                 audio.save()
-            print(f"{audio.tags['TRCK']}. {audio.tags['TIT2']}")
             i += 1
             
         except mutagen.MutagenError as a:
