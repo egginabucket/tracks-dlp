@@ -33,10 +33,8 @@ def number_album(dir, number_tracks, trim_artist):
                 audio.save()
             i += 1
             
-        except mutagen.MutagenError as a:
+        except mutagen.MutagenError as e:
             print(e)
-            mutagen.Tags.z
-
 
 def main():
     number_album(sys.argv[1], "-t" in sys.argv, "-a" in sys.argv)
